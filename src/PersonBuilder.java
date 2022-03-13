@@ -1,4 +1,4 @@
-public class PersonBuilder {
+public class PersonBuilder implements Builder{
     private String name;
     private String surname;
     private int age;
@@ -13,7 +13,7 @@ public class PersonBuilder {
     }
 
     public PersonBuilder setSurname(String surname) throws IllegalStateException {
-        if (name.isEmpty()) {
+        if (surname.isEmpty()) {
             throw new IllegalStateException("Error.Surname can`t be empty");
         }
         this.surname = surname;
@@ -37,9 +37,11 @@ public class PersonBuilder {
     }
 
     public Person build() throws IllegalStateException {
-        Person person = new Person(name, surname, age, address);
+        Person person;
         if (name == null || surname == null) {
             throw new IllegalStateException("Error.\"Name\" and \"Surname\" should`t be empty.");
+        } else {
+            person = new Person(name, surname, age, address);
         }
         return person;
     }

@@ -58,10 +58,8 @@ public class Person {
 
     public PersonBuilder newChildBuilder(String momSurname, String momAddress) {
         return new PersonBuilder()
-                .setName(" ")
-                .setSurname(momSurname)
-                .setAddress(momAddress)
-                .setAge(2);
+               .setSurname(momSurname)
+               .setAddress(momAddress);
     }
 
     @Override
